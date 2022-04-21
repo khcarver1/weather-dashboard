@@ -9,3 +9,35 @@
 // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
+
+
+//API KEy gen 151647b840c194226a1c0bf6610e7e11
+
+var repoList = document.querySelector('#weather-box');
+var fetchButton = document.getElementById('fetch-button');
+var searchInput = document.querySelector("#citysearchbox");
+
+// `getApi` function is called when the `fetchButton` is clicked
+
+function getApi() {
+  var cityName = searchInput.value.trim();
+  var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=151647b840c194226a1c0bf6610e7e11";
+  fetch(requestUrl)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+      for (var i = 0; i < 5; i++) {   
+        var listItem = document.createElement('li');
+
+        listItem.textContent = data.list[i];
+
+        repoList.appendChild(listItem);
+      }
+    });
+    console.log(requestUrl);
+    console.log(cityName);
+}
+
+fetchButton.addEventListener('click', getApi);

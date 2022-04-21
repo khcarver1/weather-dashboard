@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+    <title>Server-Side APIs</title>
 </head>
-<body>
-    
+
+<body class="min-100-vh flex-column">
+    <header class="p-3 text-center text-white bg-primary">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main class="align-center">
+
+        <section class="row bg-white">
+            <div class="col-3 text-left">
+                <h2 class="text-black">
+                    Search for a city:
+                </h2>
+                <div class="flex-column">
+                    <input type="search" name="" id="citysearchbox">
+                    <button class="btn btn-primary" id="fetch-button">
+                    Search
+                    </button>
+                </div>
+            </div>
+            <div class="col-9 text-center">
+                <ul class="" id="weather-box">
+                    
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
