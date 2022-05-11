@@ -23,6 +23,7 @@ var fetchButton = document.getElementById('fetch-button');
 var searchInput = document.querySelector("#citysearchbox");
 var searchInputHistory
 for (var key in localStorage) {
+
   if (key == "searchInputHistory") {
     searchInputHistory = localStorage.getItem("searchInputHistory")
   }
@@ -30,20 +31,6 @@ for (var key in localStorage) {
     searchInputHistory = []
   }
 }
-
-//when page loads, get previous searches and append them to LI with a button appended to it to make the previous search clickable,
-//set the button text using a loop from the local storage array. to remove dupes, add a class with set attr, target the class name
-//add a click event listener to run the javascript functions again
-
-
-
-
-
-//local storage as array, 
-// function weatherSearchHistory() {
-
-
-// }
 
 dayContainer.style.display = "none";
 todaysForecast.style.display = "none";
@@ -55,17 +42,19 @@ function getWeeklyApi() {
       return response.json();
     })
     .then(function (data) {
+      var searchInputHistory = data.city.name;
+      searchInputHistory.push(searchInput);
+      localStorage.setItem("searchInputHistory", searchInputHistory);
+      //sets the data to display flex, since above it's set to display none for when the page first loads
+      todaysForecast.style.display = "flex";
+      dayContainer.style.display = "flex";
       //sets the users search criteria to local stor. adding to an array each time
-      var searchHistoryProperName = data.city.name;
-      searchInputHistory.push(searchHistoryProperName);
-      localStorage.setItem("searchInputProperName", searchHistoryProperName);
 
       //todays weather forecast, the top box
       var todaysForecastDisplay = document.createElement('h2');
       var todaysForecastDisplayTemp = document.createElement('li');
       var todaysForecastDisplayWind = document.createElement('li');
       var todaysForecastDisplayHumidity = document.createElement('li');
-      var todaysForecastIcon = document.createElement('img');
       todaysForecastDisplay.textContent = data.city.name + " (" + (data.list[0].dt_txt).slice(5, 7) + "/" + (data.list[0].dt_txt).slice(8, 10) + "/" + (data.list[0].dt_txt).slice(0, 4) + ")";
       todaysForecastDisplayTemp.textContent = "Temp: " + data.list[0].main.feels_like;
       todaysForecastDisplayWind.textContent = "Wind: " + data.list[0].wind.speed;
@@ -74,10 +63,7 @@ function getWeeklyApi() {
       todaysForecast.appendChild(todaysForecastDisplayTemp);
       todaysForecast.appendChild(todaysForecastDisplayWind);
       todaysForecast.appendChild(todaysForecastDisplayHumidity);
-      todaysForecast.style.display = "flex";
-      dayContainer.style.display = "flex";
-
-
+      
       //day 0
       var listItem0 = document.createElement('li');
       var listItem1 = document.createElement('li');
