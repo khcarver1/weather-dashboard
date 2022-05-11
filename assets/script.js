@@ -31,7 +31,6 @@ for (var key in localStorage) {
     searchInputHistory = []
   }
 }
-
 dayContainer.style.display = "none";
 todaysForecast.style.display = "none";
 function getWeeklyApi() {
@@ -42,8 +41,7 @@ function getWeeklyApi() {
       return response.json();
     })
     .then(function (data) {
-      var searchInputHistory = data.city.name;
-      searchInputHistory.push(searchInput);
+      searchInputHistory.push(data.city.name);
       localStorage.setItem("searchInputHistory", searchInputHistory);
       //sets the data to display flex, since above it's set to display none for when the page first loads
       todaysForecast.style.display = "flex";
