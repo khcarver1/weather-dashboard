@@ -1295,6 +1295,89 @@ label form [type='radio'] {
   max-width: 100%;
 }
 
+#day-container {
+  list-style-type: none;
+  display: flex;
+  justify-content: end;
+}
+
+#weathertoday {
+  list-style-type: none;
+  border: 2px solid black;
+  margin: 5px;
+  width: 900px;
+  padding: 5px;
+  flex-direction: column;
+  height: 100%;
+}
+
+#weathertoday li {
+  font-size: 25px;
+}
+
+
+#day-container div {
+  background-color: lightblue;
+  margin: 20px;
+  padding: 10px;
+  justify-content: end;
+
+}
+
+#day-container h3 {
+  font-size: 22px;
+}
+
+#searchlist {
+  display: flex;
+  list-style-type: none;
+  justify-content: stretch;
+  padding-left: 0px;
+  flex-wrap: wrap;
+  border-top: 5px solid grey;
+}
+
+#searchlist li {
+  font-size: 25px;
+  padding-left: 0px;
+
+  border-radius: 2px;
+  flex-wrap: wrap;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#citysearchbox {
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin: 10px 0 10px 0;
+
+
+}
+
+#searchcontainer ul button {
+  margin: 10px 0 10px 0;
+  border-radius: 5px;
+  border: none;
+  background-color: grey;
+  width: 100%;
+
+}
+
+#fetch-button {
+  margin-bottom: 10px;
+}
+
+.daybox {
+  display: flex;
+  justify-content: end;
+}
+#day-container {
+  display: flex;
+  justify-content: end;
+}
+
 /* col-sm */
 @media screen and (min-width: 640px) {
   .col-sm-auto {
@@ -1679,37 +1762,6 @@ label form [type='radio'] {
   background-color: rgba(255, 255, 255, 0.075);
 }
 
-#day-container {
-  list-style-type: none;
-  
-}
-
-#weathertoday {
-  list-style-type: none;
-  border: 2px solid black;
-  margin: 5px;
-  width: 900px;
-  padding: 5px;
-  flex-direction: column;
-}
-
-#weathertoday li {
-  font-size: 25px;
-}
-
-#day-container div {
-  background-color: lightblue;
-  margin: 20px;
-  padding: 10px;
-    
-}
-
-#day-container h3 {
-  font-size: 22px;
-}
-
-#weatherbox0{
-}
 
 
 /* col-md */
